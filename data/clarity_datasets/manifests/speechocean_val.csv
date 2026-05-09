@@ -1,0 +1,261 @@
+split,utt_id,speaker_id,gender,age,audio_path,text,accuracy,completeness,fluency,prosodic,total
+val,000360013,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360013.WAV,IT'S JUST SO HARD TO PICTURE,9,10.0,9,9,9
+val,000360034,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360034.WAV,WE SPEAK OUT WHEN WE FEEL WE SHOULD SPEAK OUT,9,10.0,9,8,8
+val,000360036,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360036.WAV,I COULD DO WITH A BREAK,9,10.0,9,8,8
+val,000360132,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360132.WAV,IT IS ALWAYS SO NICE TO SEE YOU,9,10.0,9,8,8
+val,000360133,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360133.WAV,UNFORTUNATELY NO ONE IS ALLOW TO SAY,8,10.0,9,8,8
+val,000360161,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360161.WAV,ALMOST TIME FOR A HAIRCUT,7,10.0,9,8,7
+val,000360190,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360190.WAV,SO YOU WANT TO BE MORE PRODUCTIVE,9,10.0,8,7,8
+val,000360210,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360210.WAV,STARTING CAN NOT BE BETTER THAN THIS,9,10.0,9,8,8
+val,000360223,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360223.WAV,I KEEP IT TO BE AMUSED BY THE STUPIDITY,7,10.0,8,8,7
+val,000360241,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360241.WAV,AFTER THAT I BE READY TO GO,8,10.0,8,8,8
+val,000360264,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360264.WAV,I THANK YOU FOR YOUR SYMPATHY BECAUSE IT COUNTS,7,10.0,8,8,7
+val,000360283,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360283.WAV,OFF THE CHAIN I BET,8,10.0,9,8,8
+val,000360313,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360313.WAV,HE NODDED HIS HEAD AND SMILED,8,10.0,9,8,8
+val,000360314,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360314.WAV,BUT TELL ME THE TRUTH,9,10.0,9,8,8
+val,000360332,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360332.WAV,THE FIRST QUESTION WAS AN OBVIOUS ONE,9,10.0,9,8,8
+val,000360334,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360334.WAV,THE SHOCK WAS TOO MUCH FOR HIM,9,10.0,9,8,8
+val,000360339,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360339.WAV,HE KNOWS HE'S ABOUT TO GET INTO FIGHT,8,10.0,9,8,8
+val,000360343,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360343.WAV,HE WAS ALWAYS READY TO DO ANYTHING WHATEVER,9,10.0,9,8,8
+val,000360360,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360360.WAV,THE LONG AND THE SHORT OF IT IS THIS,7,10.0,9,8,7
+val,000360378,0036,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0036\000360378.WAV,YOU WANT TO BE LOVE,9,10.0,9,8,8
+val,005750059,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750059.WAV,IT'S A BOOK THAT WILL ENTERTAIN AS IT INFORMS,7,10.0,7,6,6
+val,005750067,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750067.WAV,IT'S EASY TO FEEL ENTHUSIASTIC,8,10.0,7,6,7
+val,005750089,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750089.WAV,THE MOVE IS A PART OF PLAN TO INCREASE PROFITS,8,10.0,7,7,7
+val,005750099,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750099.WAV,REPORTS ARE EXPECTED BY THE END OF THE YEAR,7,10.0,7,6,6
+val,005750150,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750150.WAV,LOVE TO SEE THAT ALL THE TREES ARE DOWN,8,10.0,7,6,7
+val,005750168,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750168.WAV,POSSIBLE FOR ME TO MEET YOU,8,10.0,6,6,7
+val,005750178,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750178.WAV,WHAT'S ARE YOU GOING AS,7,10.0,6,6,7
+val,005750179,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750179.WAV,BEAUTIFUL DAY TO BE A FAN,8,10.0,7,7,7
+val,005750237,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750237.WAV,LISTENING TO WANTED ON THE RADIO,7,10.0,7,6,7
+val,005750249,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750249.WAV,TIME FOR ME TO MAKE IT PRETTY,8,10.0,7,6,7
+val,005750268,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750268.WAV,ALL ABOUT THE CHINA CUP FOR ME,7,10.0,7,7,6
+val,005750270,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750270.WAV,RIGHT NOW IS THE TIME TO MAKE THAT MOVE,7,10.0,7,6,6
+val,005750290,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750290.WAV,DO YOU BELIEVE IN DREAMS,8,10.0,7,6,7
+val,005750297,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750297.WAV,I WILL CONTINUE TO LOOK UP TO HERE,8,10.0,7,6,7
+val,005750298,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750298.WAV,HOPE IS IN THE TOUR,8,10.0,7,6,7
+val,005750300,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750300.WAV,THE BEAST PACKAGE IS BACK,7,10.0,7,6,6
+val,005750303,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750303.WAV,IT IS A GREAT RESOURCE,8,10.0,7,6,7
+val,005750321,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750321.WAV,THEY PASS INTO THE STREET,8,10.0,7,7,7
+val,005750330,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750330.WAV,THE ANSWER TO THAT WAS ALSO BEGINNING TO COME,8,10.0,7,6,7
+val,005750347,0575,f,19,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER0575\005750347.WAV,IT WOULD BE IMPOSSIBLE IN THIS LITTLE FLAT,7,10.0,6,6,6
+val,010420022,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420022.WAV,BITTER LIVED IN FANS,8,10.0,8,7,7
+val,010420023,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420023.WAV,JACK IS FROM AUSTRALIA,8,10.0,8,7,8
+val,010420025,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420025.WAV,ALISA IS FROM CHINA,8,10.0,8,8,8
+val,010420034,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420034.WAV,ONE SEVEN FIVE FIVE,8,10.0,8,8,8
+val,010420040,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420040.WAV,NINE SIX FOUR ONE,7,10.0,8,7,7
+val,010420047,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420047.WAV,TWO TWO NINE,10,10.0,9,7,9
+val,010420059,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420059.WAV,LOVES SMELL FRESH BUFF,7,10.0,8,8,7
+val,010420060,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420060.WAV,TINA GOT SOME TURKEY,8,10.0,8,7,8
+val,010420064,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420064.WAV,DAVID GOT SOME LAMB,7,10.0,9,7,7
+val,010420102,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420102.WAV,LYNDA GOT ON MATTER CARES,7,10.0,7,7,7
+val,010420105,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420105.WAV,JACK WAS WALKING TO FAT,9,10.0,8,7,8
+val,010420107,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420107.WAV,SO LYNDA WHEN ON TO COMPANY,8,10.0,7,7,7
+val,010420129,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420129.WAV,HE LOVES BACK MUSHROOM,8,10.0,8,7,7
+val,010420133,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420133.WAV,DAVID THIS IS CLEAR,9,10.0,8,7,8
+val,010420134,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420134.WAV,HENNY GOT THE EGGPLANT,8,10.0,7,7,7
+val,010420143,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420143.WAV,ALICE WILL ARRIVE IN JANUARY SIXTH,7,10.0,7,7,7
+val,010420151,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420151.WAV,THAT IS YOUR NAME,7,10.0,7,7,7
+val,010420157,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420157.WAV,BEAUTIFUL THE NAME IS,8,10.0,8,7,7
+val,010420167,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420167.WAV,I HAVE NO ONE BUT YOU,8,10.0,7,7,7
+val,010420175,1042,f,7,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1042\010420175.WAV,DO YOU LIKE IT TOO,8,10.0,8,8,8
+val,013620027,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620027.WAV,IT IS A WORLD PROBLEM,8,10.0,7,7,7
+val,013620030,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620030.WAV,HE'S A TRUE TIME PLAYER ON THE OFF AN FLIGHT,7,10.0,7,7,7
+val,013620106,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620106.WAV,IF YOU MISS THERE'S A RARELY CONSEQUENCE,8,10.0,6,7,7
+val,013620108,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620108.WAV,BUT THERE WAS NO ONE WHO COULD HELP,8,10.0,7,7,7
+val,013620128,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620128.WAV,GOING TO GIVE A GO,8,10.0,8,8,8
+val,013620137,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620137.WAV,WE NEED YOU HELP TO KEEP IT UP,8,10.0,8,7,7
+val,013620140,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620140.WAV,I CAN SEE IT BEING A NEW TURNED,8,10.0,7,7,8
+val,013620143,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620143.WAV,SHOULD BE FUN TO SEE THE RESULTS,8,10.0,8,7,7
+val,013620146,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620146.WAV,IT'S A LIE OF COURSE,9,10.0,8,7,9
+val,013620162,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620162.WAV,ARE YOU AT THE CONCERT,9,10.0,9,8,8
+val,013620175,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620175.WAV,BUT HE'S NOT SUPPOSED TO BE GOOD,8,10.0,7,7,7
+val,013620184,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620184.WAV,FIRST ONE OF THE EVENING,8,10.0,7,7,7
+val,013620185,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620185.WAV,LIVING IN THE BAY WITH A WIN IN THE BAY,8,10.0,7,7,7
+val,013620210,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620210.WAV,WELCOME TO THE START OF THE WORK WEEK,8,10.0,8,7,7
+val,013620241,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620241.WAV,NEED TO GET THE REST,8,10.0,8,8,8
+val,013620257,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620257.WAV,MAKE THE RIGHT CHOICE PARENTS,7,10.0,8,7,7
+val,013620258,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620258.WAV,DO YOU KNOW THE ANSWER,8,10.0,9,8,8
+val,013620292,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620292.WAV,THAT'S THE TRADE TIME I ASK,8,10.0,8,7,7
+val,013620361,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620361.WAV,BUT IT WAS SLOW WORK,8,10.0,8,7,7
+val,013620366,1362,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1362\013620366.WAV,THEN HE MADE FOR HOME,8,10.0,8,8,8
+val,014390008,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390008.WAV,TIM IS GOING TO SEE BIRD,8,10.0,8,8,8
+val,014390009,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390009.WAV,DAVID RAN AWAY FROM THE CAT,8,10.0,8,8,8
+val,014390045,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390045.WAV,FIVE FIVE SEVEN ONE,8,10.0,8,8,8
+val,014390051,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390051.WAV,ALISA IS NOT VERY GOOD AT VOLLEYBALL,7,10.0,7,7,7
+val,014390052,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390052.WAV,LUCY IS NOT VERY GOOD AT SWIMMING,8,10.0,7,7,8
+val,014390057,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390057.WAV,PETER LIKES FRENCH FRIES,7,10.0,7,7,7
+val,014390064,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390064.WAV,DOES JIM LIKE THE CAKE,9,10.0,8,7,8
+val,014390068,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390068.WAV,DOES BETTY LIKE THE HAMBURGER,8,10.0,7,7,8
+val,014390076,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390076.WAV,LILLY HAS A BIG TOE,8,10.0,8,8,8
+val,014390086,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390086.WAV,JIM HAS A BEAUTIFUL SWEATER,8,10.0,8,8,7
+val,014390090,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390090.WAV,JIM LIKE THE OLD SOCKS,8,10.0,8,7,7
+val,014390117,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390117.WAV,SO SANDY WENT ON TO LIVING ROOM,8,10.0,7,7,7
+val,014390124,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390124.WAV,JAYME THIS IS MUSHROOM,8,10.0,6,6,7
+val,014390133,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390133.WAV,TEDDY IS DRAWING THE SWEET POTATO,8,10.0,7,6,8
+val,014390134,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390134.WAV,MARY IS DRAWING THE CHINESE CABBAGE,7,10.0,7,7,7
+val,014390135,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390135.WAV,DAVID WORD YOU LIKE TO GROW LEEK,8,10.0,6,6,7
+val,014390143,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390143.WAV,PETER WILL ARRIVE IN MARCH SIXTH,8,10.0,7,7,7
+val,014390154,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390154.WAV,HOW CAN I DO THAT,9,10.0,7,7,8
+val,014390156,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390156.WAV,IT IS NOT HERE YOU SEE,8,10.0,7,5,7
+val,014390163,1439,m,6,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER1439\014390163.WAV,BUT WHAT CAN ONE DO,9,10.0,7,7,8
+val,020220021,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220021.WAV,FRIENDS PLANNED TO VISIT LATER IN THE AFTERNOON,8,10.0,8,8,8
+val,020220023,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220023.WAV,A MAN APPROACHED THE CAR AND AN EXCHANGE WAS MADE,9,10.0,9,9,8
+val,020220033,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220033.WAV,SURGERY GIVE THEM THE OPPORTUNITY TO CHANGE THAT,8,10.0,9,8,8
+val,020220048,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220048.WAV,WE NEED A NEW COACH,10,10.0,9,9,9
+val,020220056,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220056.WAV,WE NEED TO GET ON THE BOARD,9,10.0,10,9,9
+val,020220060,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220060.WAV,I WANT TO ENJOY LIFE,9,10.0,9,9,9
+val,020220072,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220072.WAV,WHY DO I THINK THE WAY I DO,9,10.0,9,9,8
+val,020220091,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220091.WAV,SEVERAL HAVE CALLED ME TO DISCUSS THIS,8,10.0,9,9,8
+val,020220120,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220120.WAV,HAD ONE OF THOSE LAST WEEKEND,9,10.0,9,8,8
+val,020220122,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220122.WAV,I HAVE TO PUT IT DOWN,9,10.0,10,8,9
+val,020220139,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220139.WAV,MAYBE THAT SOMEONE WILL BE ME,8,10.0,8,7,7
+val,020220141,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220141.WAV,WHAT IS GOING ON IN,9,10.0,9,9,9
+val,020220176,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220176.WAV,SOME GOOD NEWS FOR ROD TODAY,8,10.0,9,8,7
+val,020220200,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220200.WAV,THIS GOING TO BE THE SECOND STREAM,9,10.0,10,9,9
+val,020220221,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220221.WAV,SMILE EVERY TIME HE TALKED,8,10.0,9,9,8
+val,020220232,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220232.WAV,THAT WOULD BE GREAT MAN,9,10.0,9,9,9
+val,020220259,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220259.WAV,THAT'S THE ONLY WAY TO BE FAIR,8,10.0,9,8,7
+val,020220264,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220264.WAV,WE ARE FIRED UP AND READY TO DO BATTLE,8,10.0,9,8,7
+val,020220295,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220295.WAV,BIKE CHOICE IS GOING TO BE TOUGH,9,10.0,10,9,9
+val,020220366,2022,f,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2022\020220366.WAV,IF YOU COULD KNOW IT ALL,9,10.0,9,9,9
+val,021790008,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790008.WAV,JIM WENT TO SEE KANGAROO,9,10.0,9,9,9
+val,021790025,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790025.WAV,LANA CAN PAINT THE BIRD,9,10.0,10,9,9
+val,021790030,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790030.WAV,THREE FOUR TWO EIGHT,9,10.0,9,9,9
+val,021790035,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790035.WAV,TWO ONE ONE SEVEN,10,10.0,9,9,9
+val,021790039,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790039.WAV,NINE SIX THREE SEVEN,10,10.0,10,10,9
+val,021790040,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790040.WAV,FIVE SIX ONE ONE,10,10.0,9,10,9
+val,021790043,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790043.WAV,SEVEN NINE ZERO,10,10.0,9,9,9
+val,021790055,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790055.WAV,LYNDA LOVES THE NEW SANDALS,9,10.0,10,10,9
+val,021790075,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790075.WAV,LOOK AT TINA'S SHIRT,10,10.0,10,10,9
+val,021790081,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790081.WAV,SO LAYLA WENT INTO THE BANK,9,10.0,9,9,9
+val,021790083,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790083.WAV,ELSA WAS WALKING TO SCHOOL,9,10.0,9,9,9
+val,021790084,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790084.WAV,THEN JIM WALK TO ART ROOM,9,10.0,9,9,8
+val,021790108,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790108.WAV,THAT'S MY BRAVE LITTLE MOUNTAIN CLIMBER,9,10.0,9,10,9
+val,021790112,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790112.WAV,CAN I KEEP THEM,9,10.0,10,9,9
+val,021790125,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790125.WAV,I HAVE A GOOD IDEA FOR YOU,9,10.0,9,10,9
+val,021790149,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790149.WAV,I HAD TWO SISTERS,9,10.0,10,9,9
+val,021790152,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790152.WAV,I WISH WE HAVE A LIGHT,9,10.0,10,9,8
+val,021790168,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790168.WAV,BUT NOT USE GOING OVER THAT,9,10.0,9,9,9
+val,021790169,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790169.WAV,HE WOULD GO OUT BUT WHEN,7,10.0,9,9,7
+val,021790173,2179,f,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2179\021790173.WAV,YOU HAVE NO IDEAS HAVE YOU,9,10.0,9,9,9
+val,022420015,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420015.WAV,IT MADE ME FEEL GOOD,9,10.0,10,10,9
+val,022420045,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420045.WAV,ONLY THE BOATS ARE ARMED LIGHTLY,9,10.0,10,9,8
+val,022420067,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420067.WAV,IT'S NOT GOING TO KILL THEM,9,10.0,10,10,8
+val,022420073,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420073.WAV,YET ALL IT TAKES IS THREE TWO ONE,9,10.0,10,9,9
+val,022420086,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420086.WAV,SATURDAY WINNING COLORS WILL BECOME THE SECOND,9,10.0,9,9,9
+val,022420106,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420106.WAV,EVERYONE CAN WIN AT HOME,10,10.0,10,9,9
+val,022420129,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420129.WAV,STILL ONE OF MY FEARS,9,10.0,9,9,9
+val,022420138,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420138.WAV,IF YOU NEED A REMINDER,10,10.0,9,9,9
+val,022420146,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420146.WAV,THE SPRING MARKET IS STRONG,9,10.0,10,9,9
+val,022420164,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420164.WAV,SURE IT COULD HAPPEN TO ANYONE,10,10.0,10,9,9
+val,022420168,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420168.WAV,IT'S NICE TO GET BACK INTO IT AGAIN,10,10.0,10,9,9
+val,022420172,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420172.WAV,BLUE WAS READY TO GO,9,10.0,10,9,9
+val,022420273,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420273.WAV,HOW ARE YOU GETTING ON WITH YOUR BIKE,9,10.0,10,9,8
+val,022420288,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420288.WAV,WE HAVE TO MAKE A STAND NOW,9,10.0,9,9,9
+val,022420292,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420292.WAV,MY HOME IS IN THE STARS,9,10.0,9,9,8
+val,022420306,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420306.WAV,IT IS MY LOVE THAT IS BOLD,9,10.0,10,9,9
+val,022420342,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420342.WAV,WAS HE NOT HAPPY TOO,9,10.0,10,9,9
+val,022420346,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420346.WAV,WE NEITHER OF US KNOW MUCH ABOUT IT,9,10.0,9,9,8
+val,022420348,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420348.WAV,THERE WAS ALWAYS A DAY WHEN SHE CALLED TIME,9,10.0,10,9,9
+val,022420362,2242,m,20,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER2242\022420362.WAV,THEY BOTH LAUGHED AND FOR A LONG TIME,8,10.0,9,9,8
+val,030880003,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880003.WAV,THEN LET IT STAY THERE,6,10.0,7,6,6
+val,030880015,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880015.WAV,YOU KNOW WELL THAT,8,10.0,8,8,8
+val,030880018,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880018.WAV,I WILL TALK TO THE WATER,8,10.0,8,8,8
+val,030880019,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880019.WAV,I AM GOING TO TRY,8,10.0,8,8,8
+val,030880025,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880025.WAV,HOW WOULD IT BE WITH HIM THEN,8,10.0,7,7,7
+val,030880041,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880041.WAV,THIS WAS THAT THE POOR BOY HAD WANTED TO KNOW,8,10.0,7,6,7
+val,030880049,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880049.WAV,THIS IS GETTING INTERESTING,8,10.0,8,8,8
+val,030880057,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880057.WAV,YOU HAVE DONE WITH TRAINS,8,10.0,8,8,8
+val,030880058,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880058.WAV,OH I KNOW HOW TO MAKE THEM,8,10.0,8,8,8
+val,030880067,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880067.WAV,ALL ARE GUESS THAT IT IS DONE,7,10.0,8,8,7
+val,030880086,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880086.WAV,I DO NOT KNOW WHERE,8,10.0,8,8,8
+val,030880092,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880092.WAV,SHE PUT IT BACK,8,10.0,8,8,8
+val,030880096,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880096.WAV,IT WAS ALL TOO WONDERFUL,8,10.0,9,8,8
+val,030880099,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880099.WAV,NO GETTING OUT OF THAT,7,10.0,8,8,6
+val,030880105,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880105.WAV,SO IT WAS NOW,8,10.0,9,9,8
+val,030880123,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880123.WAV,I TURN HIM SEEN IT,9,10.0,9,9,9
+val,030880131,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880131.WAV,HELLO THERE WOMAN WOMAN,8,10.0,9,8,8
+val,030880146,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880146.WAV,I ONLY GUESSED IT,8,10.0,8,8,8
+val,030880172,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880172.WAV,DO NOT I KNOW YOU,8,10.0,9,8,8
+val,030880173,3088,m,9,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER3088\030880173.WAV,THIS ONE RIGHT HERE,8,10.0,9,9,8
+val,060480005,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480005.WAV,FOR THESE HE TOOK THE MONEY,8,10.0,8,7,7
+val,060480008,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480008.WAV,WHAT DID YOU NOT LET ASK KNOW,8,10.0,8,8,8
+val,060480012,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480012.WAV,IT OFTEN HAPPENS SO IN LIFE,9,10.0,8,8,8
+val,060480018,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480018.WAV,BUT YOU SIDE JUST NOW,8,10.0,9,8,8
+val,060480037,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480037.WAV,WHAT IS THERE SUCH A PLACE,9,10.0,9,9,9
+val,060480050,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480050.WAV,I HAD HIT HIM AT LEST,8,10.0,8,7,7
+val,060480082,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480082.WAV,LET US GO SET SHOE,8,10.0,8,8,8
+val,060480084,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480084.WAV,HE STOPPED IN HIS WALK AND LOOKED AROUND,8,10.0,7,7,8
+val,060480090,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480090.WAV,SHE CAME UP TO MY WITH MY SISTER,9,10.0,7,7,8
+val,060480094,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480094.WAV,SHE DID EVERYTHING SO WELL,9,10.0,8,8,8
+val,060480102,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480102.WAV,HE THEN WENT AWAY,8,10.0,9,8,8
+val,060480104,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480104.WAV,AND SO HER LIFE WAS ONE OF LOVE,8,10.0,8,7,7
+val,060480131,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480131.WAV,LITTLE BY LITTLE THE BOYS BEGAN TALKING AGAIN,8,10.0,8,8,7
+val,060480134,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480134.WAV,SHE MAY BE PHONE,8,10.0,9,9,8
+val,060480135,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480135.WAV,SHE WENT BACK INTO THE LIE LIBRARY,8,10.0,8,8,8
+val,060480145,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480145.WAV,WHAT DID YOU WANT TO SEE ME ABOUT,8,10.0,8,8,8
+val,060480147,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480147.WAV,WERE STAY AT NINE,8,10.0,8,8,8
+val,060480148,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480148.WAV,DECIDE IT WHO CAN I CANNOT,9,10.0,7,7,8
+val,060480168,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480168.WAV,HE KIT ME BY THE ARM,8,10.0,7,7,7
+val,060480169,6048,m,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6048\060480169.WAV,FOURTEEN FEEL AWAY AND THAT LEFT ONE,8,10.0,7,7,7
+val,064010049,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010049.WAV,WHY BREAK EVERY TIE,8,10.0,8,8,8
+val,064010056,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010056.WAV,THE CHILDREN PRESENTLY RETURNED,7,10.0,6,7,6
+val,064010057,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010057.WAV,THE GIRL STOPED SHORT,7,10.0,7,7,6
+val,064010066,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010066.WAV,OR WHY DID NOT JOB GO,8,10.0,7,6,7
+val,064010067,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010067.WAV,THE HAND JUST WHERE HE WISHED,8,10.0,6,6,7
+val,064010086,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010086.WAV,PROUD OLD FAMILIES I GUESS,8,10.0,8,8,7
+val,064010092,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010092.WAV,CAMPED AT OUR OLD PLACE,8,10.0,8,8,8
+val,064010093,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010093.WAV,AND THEN MY AUNT USE TO CRY,8,10.0,7,7,7
+val,064010103,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010103.WAV,SHE STAMPS HER FOOT,8,10.0,7,7,7
+val,064010107,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010107.WAV,OUR TRIP BEGAN BADLY,8,10.0,7,7,8
+val,064010109,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010109.WAV,WOULD SHE WIN HIM,9,10.0,7,6,8
+val,064010120,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010120.WAV,KNOWING CAME BY SEEING,7,10.0,8,6,7
+val,064010123,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010123.WAV,PRESENTLY THE SNOW CAME,7,10.0,7,6,7
+val,064010135,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010135.WAV,LIVELY NOW LIVELY MEN,7,10.0,7,6,6
+val,064010141,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010141.WAV,THREE MEN IN RED COAT CAME,8,10.0,8,7,7
+val,064010150,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010150.WAV,THE BOX WAS LARGE AND IMPORTANT NEAR THE STAGE,6,10.0,7,6,5
+val,064010161,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010161.WAV,I WENT TO THE SEA WORLD TO SEE BEAUTIFUL FISHES,7,10.0,7,7,7
+val,064010164,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010164.WAV,ALL MEN JUMPPED THEIR HANDS,8,10.0,8,8,8
+val,064010172,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010172.WAV,AN EXAMPLE MUST BE MADE,8,10.0,7,7,7
+val,064010173,6401,f,12,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER6401\064010173.WAV,MINUTE AFTER MINUTE WENT BY,7,10.0,7,7,6
+val,096250001,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250001.WAV,AND I NEED YOU TO HELP ME,6,10.0,7,7,5
+val,096250002,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250002.WAV,SHE TURNED AROUND AND LOOKED HIM IN THE EYES,4,10.0,5,6,4
+val,096250003,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250003.WAV,IT WAS ALL HE COULD DO,5,10.0,4,4,4
+val,096250004,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250004.WAV,THEY WOULD NOT KNOW IT,3,10.0,5,6,3
+val,096250005,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250005.WAV,THERE WILL BE AN END OF THAT NOW,5,10.0,6,5,5
+val,096250007,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250007.WAV,BUT OF ONE THING SHE IS SURE,5,10.0,7,6,5
+val,096250008,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250008.WAV,YOU HAVE A GIRL WITH YOU,3,10.0,7,6,3
+val,096250009,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250009.WAV,THIS WAS WHAT THEY WERE LOOKING FOR,4,10.0,5,6,4
+val,096250010,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250010.WAV,THE MAN WALKED TO THE WOMAN,5,10.0,6,6,5
+val,096250011,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250011.WAV,BUT THERE WAS SO MUCH MORE TO COME,3,10.0,6,6,3
+val,096250012,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250012.WAV,AND HE WAS STILL THAT LITTLE BOY,4,10.0,6,6,4
+val,096250013,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250013.WAV,I HAD NO WHERE ELSE TO GO,5,10.0,6,6,5
+val,096250014,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250014.WAV,I KNOW YOU WANT TO GIVE ME A GOOD LIFE,3,10.0,6,6,3
+val,096250015,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250015.WAV,HE ASKED ALL OF US,4,10.0,7,6,4
+val,096250016,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250016.WAV,I JUST HAD A LONG DAY,5,10.0,5,5,5
+val,096250017,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250017.WAV,NO ONE WAS IN THE ROOM,3,10.0,5,5,3
+val,096250018,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250018.WAV,HE LOOKED TO HIS SIDE AND SMILED,4,10.0,6,6,4
+val,096250020,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250020.WAV,HOW MUCH WOULD THEY KNOW OF WHAT HAD HAPPENED,5,10.0,5,5,5
+val,096250021,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250021.WAV,SO ENJOY AND TELL ME WHAT YOU THINK OF IT,3,10.0,5,6,3
+val,096250023,9625,f,25,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9625\096250023.WAV,THEN SHE TURNED TO HIM,4,10.0,6,6,4
+val,096460002,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460002.WAV,A QUICK JUMP OVER THE WIDENING GAP SAVED HIM,3,10.0,3,3,3
+val,096460003,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460003.WAV,HE DRIFTED OUT AND AWAY ALONG SUNSET TRACK,4,10.0,3,3,3
+val,096460004,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460004.WAV,THE MOON WOULD NOT RISE TILL LATER,5,10.0,3,3,4
+val,096460005,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460005.WAV,HIS FATHER HAZARDED ONE GUESS,3,10.0,3,3,3
+val,096460006,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460006.WAV,WHEN HE RETURNED HE ASKED IF THEY WERE HUNGRY,4,8.9,3,3,3
+val,096460007,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460007.WAV,BEING WITHOUT YOU MAKES ME VERY UNHAPPY,5,10.0,6,5,5
+val,096460008,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460008.WAV,THOSE EYES COULD STOP BULLETS,3,10.0,5,5,3
+val,096460009,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460009.WAV,SHE ALWAYS MAKE THEM MAD,4,10.0,4,4,4
+val,096460010,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460010.WAV,WHAT HAD HAPPENED SINCE THEN,5,10.0,7,7,5
+val,096460011,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460011.WAV,WAS IT MOVING AS AN AUTOMOBILE,3,10.0,5,5,3
+val,096460012,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460012.WAV,ONE FURTHER REMARK HOWEVER LEFT HIS LIPS,4,10.0,5,5,4
+val,096460013,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460013.WAV,WE MUST GET BETTER ACQUAINTED,5,10.0,5,6,5
+val,096460014,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460014.WAV,YOU ATTACKED US AFTER ALL,7,10.0,7,6,6
+val,096460015,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460015.WAV,BUT SOMETIMES LIFE CAN HURT,4,10.0,6,7,4
+val,096460016,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460016.WAV,CHAPTER ONE FIRST DAY AT SCHOOL,7,10.0,7,7,6
+val,096460017,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460017.WAV,SO SIMILAR YET SO DIFFERENT,3,10.0,7,6,3
+val,096460018,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460018.WAV,THIS PLACE IS BAD NEWS,4,10.0,7,7,4
+val,096460019,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460019.WAV,WELL YOUR ABOUT HALF RIGHT,5,10.0,7,6,5
+val,096460020,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460020.WAV,JUST WISHING EACH OTHER LUCK,3,10.0,5,5,3
+val,096460021,9646,f,21,C:\Users\azizg\Desktop\pfe-d\data\clarity_datasets\speechocean762\WAVE\SPEAKER9646\096460021.WAV,AN ALMOST PAINFUL QUIET REIGNS,4,10.0,5,5,4
