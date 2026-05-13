@@ -15,7 +15,7 @@ class AnalysisJobService:
         db = SessionLocal()
 
         try:
-            self.db_service.update_job_status(
+            self.db_service.update_analysis_status(
                 db=db,
                 analysis_id=analysis_id,
                 status="processing",
@@ -25,7 +25,7 @@ class AnalysisJobService:
 
             service = AnalysisService()
 
-            self.db_service.update_job_status(
+            self.db_service.update_analysis_status(
                 db=db,
                 analysis_id=analysis_id,
                 status="processing",
@@ -42,7 +42,7 @@ class AnalysisJobService:
             )
 
         except Exception as e:
-            self.db_service.update_job_status(
+            self.db_service.update_analysis_status(
                 db=db,
                 analysis_id=analysis_id,
                 status="failed",

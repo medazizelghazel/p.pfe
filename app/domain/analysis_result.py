@@ -30,6 +30,18 @@ class AnalysisResult:
     emotion_model_used: str = "not_specified"
     emotion_model_metrics: dict | None = None
 
+    # Trainer emotion = current emotion analysis on trainer-only audio when diarization succeeds.
+    trainer_emotion: dict | None = None
+
+    # Global emotion of all learners, computed from learner segments in the diarization clean CSV.
+    learner_emotion_enabled: bool = False
+    learner_emotion: dict | None = None
+    learner_emotion_audio_path: str | None = None
+    learner_emotion_segments_csv_path: str | None = None
+    learner_emotion_segment_count: int = 0
+    learner_emotion_speaker_count: int = 0
+    learner_emotion_audio_duration: float = 0.0
+
     diarization_enabled: bool = False
     diarization_rttm_path: str | None = None
     diarization_raw_csv_path: str | None = None
@@ -99,6 +111,16 @@ class AnalysisResult:
     def _has_diarization_context(self) -> bool:
         return bool(self._detail("has_diarization_context", False))
 
+    def _learner_emotion_value(self, key: str, default=None):
+        if not self.learner_emotion:
+            return default
+        return self.learner_emotion.get(key, default)
+
+    def _learner_emotion_scores(self) -> dict:
+        if not self.learner_emotion:
+            return {}
+        return self.learner_emotion.get("aggregated_scores", {}) or {}
+
     def get_interpretation(self) -> str:
         if self.global_score >= 80:
             level = "très satisfaisante"
@@ -119,6 +141,16 @@ class AnalysisResult:
             source_text = (
                 " Les scores de clarté, d'émotion et de dynamisme vocal "
                 "ont été calculés sur l'audio du formateur uniquement."
+            )
+
+        learner_emotion_text = ""
+        if self.learner_emotion_enabled and self.learner_emotion:
+            learner_emotion_text = (
+                f" L'émotion globale estimée des apprenants est "
+                f"'{self.learner_emotion.get('dominant_emotion', 'not_computed')}' "
+                f"avec une confiance de "
+                f"{self._num(self.learner_emotion.get('confidence', 0.0), 4)}, "
+                f"calculée sur {self.learner_emotion.get('num_segments', 0)} segment(s) audio."
             )
 
         engagement_text = ""
@@ -150,10 +182,10 @@ class AnalysisResult:
             f"La performance vocale globale est {level}. "
             f"Le score de clarté est de {self.clarity_score}/100, "
             f"le score d'engagement est de {self.engagement_score}/100, "
-            f"et l'émotion dominante estimée est '{self.dominant_emotion}' "
+            f"et l'émotion dominante du formateur estimée est '{self.dominant_emotion}' "
             f"avec une confiance de {self.emotion_confidence:.4f}, "
             f"calculée sur {self.emotion_num_segments} segments."
-            f"{diarization_text}{source_text}{engagement_text}{summary_text}"
+            f"{learner_emotion_text}{diarization_text}{source_text}{engagement_text}{summary_text}"
         )
 
     def get_summary_lines(self) -> list[str]:
@@ -161,8 +193,22 @@ class AnalysisResult:
             f"Clarté : {self.clarity_score}/100",
             f"Engagement : {self.engagement_score}/100 ({self.engagement_label})",
             f"Score global : {self.global_score}/100",
-            f"Emotion dominante : {self.dominant_emotion}",
+            f"Émotion formateur dominante : {self.dominant_emotion}",
         ]
+
+        if self.learner_emotion_enabled and self.learner_emotion:
+            lines.append(
+                "Émotion globale apprenants : "
+                f"{self.learner_emotion.get('dominant_emotion', 'not_computed')}"
+            )
+            lines.append(
+                "Confiance émotion apprenants : "
+                f"{self._num(self.learner_emotion.get('confidence', 0.0), 4)}"
+            )
+            lines.append(
+                "Segments émotion apprenants : "
+                f"{self.learner_emotion.get('num_segments', 0)}"
+            )
 
         if self.engagement_details:
             lines.append(
@@ -270,6 +316,23 @@ class AnalysisResult:
                 "Introduire plus de variation prosodique pour éviter une voix monotone."
             )
 
+        if self.learner_emotion_enabled and self.learner_emotion:
+            learner_scores = self._learner_emotion_scores()
+            learner_low = self._num(learner_scores.get("low_energy", 0.0))
+            learner_tense = self._num(learner_scores.get("tense_stressed", 0.0))
+
+            if learner_low >= 0.35:
+                recommendations.append(
+                    "L'émotion globale des apprenants indique une énergie faible. "
+                    "Ajouter des questions, exemples ou activités courtes pour relancer l'attention."
+                )
+
+            if learner_tense >= 0.45:
+                recommendations.append(
+                    "L'émotion globale des apprenants semble tendue ou stressée. "
+                    "Ralentir le rythme et reformuler les points complexes."
+                )
+
         if not self.transcription_enabled:
             recommendations.append(
                 "Activer la transcription automatique afin de générer un résumé pédagogique du cours."
@@ -285,6 +348,7 @@ class AnalysisResult:
 
     def get_dashboard_payload(self) -> dict:
         emotion_scores = self.emotion_aggregated_scores or {}
+        learner_emotion_scores = self._learner_emotion_scores()
         details = self.engagement_details or {}
 
         clarity_score = self._num(self.clarity_score, 2)
@@ -304,6 +368,11 @@ class AnalysisResult:
         trainer_turn_count = self._int(details.get("trainer_turn_count", 0))
         learner_turn_count = self._int(details.get("learner_turn_count", 0))
         interaction_turn_count = self._int(details.get("interaction_turn_count", 0))
+
+        learner_emotion_confidence = self._num(
+            self._learner_emotion_value("confidence", 0.0),
+            4,
+        )
 
         return {
             "kpis": [
@@ -329,11 +398,18 @@ class AnalysisResult:
                     "level": self.engagement_label,
                 },
                 {
-                    "key": "emotion_confidence",
-                    "label": "Confiance émotion",
+                    "key": "trainer_emotion_confidence",
+                    "label": "Confiance émotion formateur",
                     "value": self._num(self.emotion_confidence, 4),
                     "unit": "",
                     "level": self._score_level(self.emotion_confidence * 100),
+                },
+                {
+                    "key": "learner_emotion_confidence",
+                    "label": "Confiance émotion apprenants",
+                    "value": learner_emotion_confidence,
+                    "unit": "",
+                    "level": self._score_level(learner_emotion_confidence * 100),
                 },
                 {
                     "key": "summary_sections",
@@ -373,6 +449,40 @@ class AnalysisResult:
                     }
                     for label, value in emotion_scores.items()
                 ],
+            },
+
+            "trainer_emotion": self.trainer_emotion or {
+                "enabled": True,
+                "type": "trainer",
+                "dominant_emotion": self.dominant_emotion,
+                "confidence": self._num(self.emotion_confidence, 4),
+                "num_segments": self.emotion_num_segments,
+                "aggregated_scores": emotion_scores,
+                "model_name": self.emotion_model_used,
+                "model_metrics": self.emotion_model_metrics or {},
+            },
+
+            "learner_emotion": {
+                "enabled": self.learner_emotion_enabled,
+                "type": self._learner_emotion_value("type", "global_all_learners"),
+                "dominant_emotion": self._learner_emotion_value("dominant_emotion"),
+                "confidence": learner_emotion_confidence,
+                "num_segments": self._int(self._learner_emotion_value("num_segments", 0)),
+                "model_name": self._learner_emotion_value("model_name"),
+                "model_metrics": self._learner_emotion_value("model_metrics", {}),
+                "distribution": [
+                    {
+                        "label": label,
+                        "value": self._num(value, 4),
+                        "percentage": self._percent(value),
+                    }
+                    for label, value in learner_emotion_scores.items()
+                ],
+                "audio_path": self.learner_emotion_audio_path,
+                "segments_csv_path": self.learner_emotion_segments_csv_path,
+                "audio_duration": self._num(self.learner_emotion_audio_duration, 2),
+                "learner_segment_count": self.learner_emotion_segment_count,
+                "learner_speaker_count": self.learner_emotion_speaker_count,
             },
 
             "engagement": {
@@ -466,6 +576,20 @@ class AnalysisResult:
                     {"label": "Participation apprenant", "value": learner_participation_component},
                     {"label": "Interaction", "value": interaction_component},
                 ],
+                "trainer_emotion_distribution": [
+                    {
+                        "label": label,
+                        "value": self._percent(value),
+                    }
+                    for label, value in emotion_scores.items()
+                ],
+                "learner_emotion_distribution": [
+                    {
+                        "label": label,
+                        "value": self._percent(value),
+                    }
+                    for label, value in learner_emotion_scores.items()
+                ],
                 "emotion_distribution": [
                     {
                         "label": label,
@@ -522,6 +646,25 @@ class AnalysisResult:
             "emotion_segment_predictions": self.emotion_segment_predictions or [],
             "emotion_model_used": self.emotion_model_used,
             "emotion_model_metrics": self.emotion_model_metrics or {},
+
+            "trainer_emotion": self.trainer_emotion or {
+                "enabled": True,
+                "type": "trainer",
+                "dominant_emotion": self.dominant_emotion,
+                "confidence": self.emotion_confidence,
+                "num_segments": self.emotion_num_segments,
+                "aggregated_scores": self.emotion_aggregated_scores or {},
+                "model_name": self.emotion_model_used,
+                "model_metrics": self.emotion_model_metrics or {},
+            },
+
+            "learner_emotion_enabled": self.learner_emotion_enabled,
+            "learner_emotion": self.learner_emotion or {},
+            "learner_emotion_audio_path": self.learner_emotion_audio_path,
+            "learner_emotion_segments_csv_path": self.learner_emotion_segments_csv_path,
+            "learner_emotion_segment_count": self.learner_emotion_segment_count,
+            "learner_emotion_speaker_count": self.learner_emotion_speaker_count,
+            "learner_emotion_audio_duration": self.learner_emotion_audio_duration,
 
             "diarization_enabled": self.diarization_enabled,
             "diarization_rttm_path": self.diarization_rttm_path,

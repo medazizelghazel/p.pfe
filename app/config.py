@@ -40,3 +40,9 @@ DATABASE_URL = (
     f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}"
     f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
+
+JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "dev_secret_key_change_me")
+JWT_ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")
+JWT_ACCESS_TOKEN_EXPIRE_MINUTES = int(
+    os.getenv("JWT_ACCESS_TOKEN_EXPIRE_MINUTES", "1440")
+)
