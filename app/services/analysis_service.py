@@ -506,8 +506,10 @@ class AnalysisService:
         self._print_summary_result(summary_result)
 
         global_score = self.score_aggregator.aggregate(
-            clarity_score,
-            engagement_score,
+            clarity_score=clarity_score,
+            engagement_score=engagement_score,
+            trainer_emotion=trainer_emotion_result,
+            learner_emotion=learner_emotion_result,
         )
 
         result = AnalysisResult(
@@ -626,3 +628,4 @@ class AnalysisService:
         )
 
         return result
+    

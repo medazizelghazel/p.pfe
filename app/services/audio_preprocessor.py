@@ -33,32 +33,23 @@ class AudioPreprocessor:
         return yt
 
     def normalize(self, y: np.ndarray) -> np.ndarray:
-        # La normalisation se fait maintenant avec la fonction utilitaire de librosa
         return librosa.util.normalize(y)
 
     def save(self, y: np.ndarray, sr: int, output_path: str) -> str:
-        # Amélioration : Forcer le format PCM 16-bit pour éviter le bruit de quantification
         sf.write(output_path, y, sr, subtype='PCM_16')
         return output_path
 
     def process(self, audio_path: str, analysis_id: str) -> AudioFile:
         y, sr = self.load(audio_path)
 
-        # ---- LE NOUVEL ORDRE LOGIQUE DE TRAITEMENT ----
-        
-        # 1. On filtre les basses fréquences (bruits de micro, chocs) d'abord
         y = self.highpass_filter(y, sr, cutoff=80.0)
         
-        # 2. On retire le bruit de fond constant (le fameux "zzzz" ou souffle)
         y = self.reduce_noise_spectral(y, sr)
         
-        # 3. On coupe les silences maintenant que le signal est propre
         y = self.trim_silence(y, top_db=25)
         
-        # 4. On normalise LE VOLUME À LA TOUTE FIN !
         y = self.normalize(y)
 
-        # ------------------------------------------------
 
         output_path = PROCESSED_AUDIO_DIR / f"{analysis_id}_processed.wav"
         self.save(y, sr, str(output_path))

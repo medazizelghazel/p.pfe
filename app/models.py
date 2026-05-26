@@ -47,6 +47,24 @@ class User(Base):
         cascade="all, delete-orphan",
     )
 
+    course_badges = relationship(
+        "CourseBadge",
+        back_populates="trainer",
+        cascade="all, delete-orphan",
+    )
+
+    analysis_insights = relationship(
+        "AnalysisInsight",
+        back_populates="trainer",
+        cascade="all, delete-orphan",
+    )
+
+    notifications = relationship(
+        "Notification",
+        back_populates="user",
+        cascade="all, delete-orphan",
+    )
+
 
 class Video(Base):
     __tablename__ = "videos"
@@ -62,6 +80,12 @@ class Video(Base):
     original_filename = Column(String(255), nullable=False)
     stored_filename = Column(String(255), nullable=False)
     video_path = Column(Text, nullable=False)
+
+    # Course metadata from upload form
+    course_name = Column(String(255), nullable=True)
+    course_date = Column(DateTime(timezone=True), nullable=True)
+    learner_count = Column(Integer, nullable=True)
+    description = Column(Text, nullable=True)
 
     file_size_bytes = Column(BigInteger, nullable=True)
     mime_type = Column(String(100), nullable=True)
@@ -209,3 +233,146 @@ class Analysis(Base):
 
     video = relationship("Video", back_populates="analyses")
     trainer = relationship("User", back_populates="analyses")
+
+    badges = relationship(
+        "CourseBadge",
+        back_populates="analysis",
+        cascade="all, delete-orphan",
+    )
+
+    insights = relationship(
+        "AnalysisInsight",
+        back_populates="analysis",
+        cascade="all, delete-orphan",
+    )
+
+    notifications = relationship(
+        "Notification",
+        back_populates="analysis",
+        cascade="all, delete-orphan",
+    )
+
+
+class CourseBadge(Base):
+    __tablename__ = "course_badges"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    analysis_id = Column(
+        Integer,
+        ForeignKey("analyses.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    trainer_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    badge_key = Column(String(100), nullable=False, index=True)
+    badge_label = Column(String(150), nullable=False)
+    badge_icon = Column(String(20), nullable=True)
+    badge_reason = Column(Text, nullable=True)
+
+    score_value = Column(Float, nullable=True)
+    threshold_value = Column(Float, nullable=True)
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    analysis = relationship("Analysis", back_populates="badges")
+    trainer = relationship("User", back_populates="course_badges")
+
+
+class AnalysisInsight(Base):
+    __tablename__ = "analysis_insights"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    analysis_id = Column(
+        Integer,
+        ForeignKey("analyses.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    trainer_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    insight_type = Column(String(100), nullable=False, index=True)
+    title = Column(String(255), nullable=False)
+    description = Column(Text, nullable=True)
+
+    start_sec = Column(Float, nullable=True)
+    end_sec = Column(Float, nullable=True)
+
+    severity = Column(String(50), nullable=True)
+    score = Column(Float, nullable=True)
+
+    metadata_json = Column("metadata", JSONB, nullable=True)
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    analysis = relationship("Analysis", back_populates="insights")
+    trainer = relationship("User", back_populates="analysis_insights")
+
+
+class Notification(Base):
+    __tablename__ = "notifications"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id", ondelete="CASCADE"),
+        nullable=False,
+        index=True,
+    )
+
+    analysis_id = Column(
+        Integer,
+        ForeignKey("analyses.id", ondelete="CASCADE"),
+        nullable=True,
+        index=True,
+    )
+
+    notification_type = Column(String(100), nullable=False, index=True)
+    title = Column(String(255), nullable=False)
+    message = Column(Text, nullable=False)
+
+    priority = Column(String(50), default="normal")
+    is_read = Column(Boolean, default=False, index=True)
+
+    metadata_json = Column("metadata", JSONB, nullable=True)
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    read_at = Column(DateTime(timezone=True), nullable=True)
+
+    user = relationship("User", back_populates="notifications")
+    analysis = relationship("Analysis", back_populates="notifications")
+
+
+class LeaderboardSnapshot(Base):
+    __tablename__ = "leaderboard_snapshots"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    period_type = Column(String(20), nullable=False)
+    period_value = Column(String(20), nullable=False)
+
+    category = Column(String(100), nullable=False, index=True)
+    entity_type = Column(String(50), nullable=False)
+    entity_id = Column(Integer, nullable=False)
+
+    rank_position = Column(Integer, nullable=False)
+    score = Column(Float, nullable=False)
+
+    metadata_json = Column("metadata", JSONB, nullable=True)
+
+    created_at = Column(DateTime(timezone=True), server_default=func.now())

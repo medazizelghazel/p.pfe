@@ -226,23 +226,14 @@ class FeatureExtractor:
             sr=TARGET_SAMPLE_RATE,
             mono=True,
         )
-
         y = y.astype(np.float32)
-
         mfcc_means = self.extract_mfcc(y, sr)
-
         pitch_mean, pitch_std, _, pitch_series = self.extract_pitch_data(y, sr)
-
         energy_mean, energy_std, energy_series = self.extract_energy_data(y)
-
         zcr_mean, zcr_std = self.extract_zcr_stats(y)
-
         spectral_centroid_mean, spectral_centroid_std = self.extract_spectral_centroid_stats(y, sr)
-
         spectral_bandwidth_mean, spectral_bandwidth_std = self.extract_spectral_bandwidth_stats(y, sr)
-
         voice_activity_series = self.build_voice_activity_series(energy_series)
-
         (
             pause_count,
             mean_pause_duration,

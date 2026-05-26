@@ -228,10 +228,7 @@ class EngagementEstimator:
 
         return round(self._clamp(score_01 * 100.0), 2)
 
-    # ------------------------------------------------------------------
-    # Output details
-    # ------------------------------------------------------------------
-
+    
     def _build_details(self, f: dict[str, float]) -> dict:
         trainer_vocal_component = self._trainer_vocal_component_01(f) * 100.0
         learner_participation_component = self._learner_participation_component_01(f) * 100.0

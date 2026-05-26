@@ -21,7 +21,6 @@ class DiarizationService:
         if not self.hf_token:
             raise ValueError("HUGGINGFACE_TOKEN not found in .env file")
 
-        # ── Auto-detect GPU ───────────────────────────────────────────────────
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         print(f"[DiarizationService] Using device: {self.device}")
 
@@ -31,7 +30,6 @@ class DiarizationService:
         )
         self.pipeline.to(self.device)
 
-    # ── Main entry point ──────────────────────────────────────────────────────
 
     def diarize_audio(
         self,
@@ -59,26 +57,21 @@ class DiarizationService:
         output_rttm = os.path.join(output_dir, f"{base_name}.rttm")
         output_csv  = os.path.join(output_dir, f"{base_name}_segments.csv")
 
-        # ── Load audio ────────────────────────────────────────────────────────
         data, sample_rate = sf.read(audio_path, dtype="float32", always_2d=True)
         waveform = torch.from_numpy(data.T)  # shape: (channels, time)
         audio_input = {"waveform": waveform, "sample_rate": sample_rate}
 
-        # ── Run pyannote pipeline ─────────────────────────────────────────────
         output = self.pipeline(
             audio_input,
             min_speakers=min_speakers,
             max_speakers=max_speakers
         )
 
-        # speaker-diarization-3.1        → DiarizeOutput with .speaker_diarization
-        # speaker-diarization-community-1 → Annotation directly
         if hasattr(output, "speaker_diarization"):
             diarization = output.speaker_diarization
         else:
             diarization = output
 
-        # ── Extract raw segments ──────────────────────────────────────────────
         raw_segments = []
         for segment, _, speaker in diarization.itertracks(yield_label=True):
             start    = round(segment.start, 2)
@@ -91,10 +84,8 @@ class DiarizationService:
                 "duration": duration,
             })
 
-        # ── Compute per-speaker statistics ────────────────────────────────────
         speaker_stats = self._compute_speaker_stats(raw_segments)
 
-        # ── Classify real speakers vs artifacts ───────────────────────────────
         real_speakers, artifact_speakers = self._classify_speakers(speaker_stats)
 
         # ── Detect overlaps ───────────────────────────────────────────────────

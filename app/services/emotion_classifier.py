@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from pathlib import Path
 from typing import Literal
@@ -8,32 +8,38 @@ class EmotionClassifier:
     """
     Emotion classifier wrapper.
 
-    Default backend:
-        wav2vec2
+    Official backend used by the system:
+        Wav2Vec2
 
-    Output format stays compatible with the rest of the project:
-        dominant_emotion
-        confidence
-        num_segments
-        aggregated_scores
-        segment_predictions
-        model_name
-        model_metrics
+    The model predicts raw emotions:
+        angry, disgust, fear, happy, neutral, sad
+
+    Then infer_wav2vec2.py maps them to pedagogical labels:
+        neutral_calm
+        energetic_engaged
+        low_energy
+        tense_stressed
     """
 
     def __init__(
         self,
-        backend: Literal["wav2vec2", "cnn2d"] = "wav2vec2",
+        backend: str = "wav2vec2",
         model_path: str | None = None,
         target_sample_rate: int = 16000,
         mode: Literal["fast", "balanced", "full"] = "fast",
         max_duration: float | None = None,
         hop_duration: float | None = None,
-        n_mels: int = 64,
-        n_fft: int = 1024,
-        hop_length: int = 256,
+        **kwargs,
     ):
-        self.backend = backend
+        # Force Wav2Vec2 in the whole system.
+        # The backend parameter is kept only to avoid breaking old code.
+        if backend != "wav2vec2":
+            print(
+                "[EmotionClassifier] CNN2D backend is disabled. "
+                "Using Wav2Vec2 instead."
+            )
+
+        self.backend = "wav2vec2"
         self.mode = mode
 
         if max_duration is None or hop_duration is None:
@@ -42,62 +48,32 @@ class EmotionClassifier:
         self.max_duration = max_duration
         self.hop_duration = hop_duration
 
-        if self.backend == "wav2vec2":
-            from app.ai.emotion.infer_wav2vec2 import EmotionInferenceServiceWav2Vec2
+        from app.ai.emotion.infer_wav2vec2 import EmotionInferenceServiceWav2Vec2
 
-            self.model_path = Path(
-                model_path or "artifacts/emotion/wav2vec2_emotion_best.pt"
+        self.model_path = Path(
+            model_path or "artifacts/emotion/wav2vec2_emotion_best.pt"
+        )
+
+        if not self.model_path.exists():
+            raise FileNotFoundError(
+                f"Wav2Vec2 emotion model not found: {self.model_path}. "
+                "Make sure artifacts/emotion/wav2vec2_emotion_best.pt exists."
             )
 
-            print(
-                "[EmotionClassifier] "
-                f"backend=wav2vec2, mode={self.mode}, "
-                f"max_duration={self.max_duration}s, "
-                f"hop_duration={self.hop_duration}s"
-            )
+        print(
+            "[EmotionClassifier] "
+            f"backend=wav2vec2, mode={self.mode}, "
+            f"max_duration={self.max_duration}s, "
+            f"hop_duration={self.hop_duration}s, "
+            f"model_path={self.model_path}"
+        )
 
-            self.inference_service = EmotionInferenceServiceWav2Vec2(
-                model_path=str(self.model_path),
-                target_sample_rate=target_sample_rate,
-                max_duration=self.max_duration,
-                hop_duration=self.hop_duration,
-            )
-
-        elif self.backend == "cnn2d":
-            # Optional legacy backend.
-            # Use only if infer_cnn2d.py still contains EmotionInferenceServiceCNN2D.
-            try:
-                from app.ai.emotion.infer_cnn2d import EmotionInferenceServiceCNN2D
-            except ImportError as e:
-                raise ImportError(
-                    "CNN2D backend is not available. "
-                    "Use backend='wav2vec2' or restore EmotionInferenceServiceCNN2D "
-                    "inside app/ai/emotion/infer_cnn2d.py."
-                ) from e
-
-            self.model_path = Path(
-                model_path or "artifacts/emotion/emotion_cnn2d_best.pt"
-            )
-
-            print(
-                "[EmotionClassifier] "
-                f"backend=cnn2d, mode={self.mode}, "
-                f"max_duration={self.max_duration}s, "
-                f"hop_duration={self.hop_duration}s"
-            )
-
-            self.inference_service = EmotionInferenceServiceCNN2D(
-                model_path=str(self.model_path),
-                target_sample_rate=target_sample_rate,
-                max_duration=self.max_duration,
-                hop_duration=self.hop_duration,
-                n_mels=n_mels,
-                n_fft=n_fft,
-                hop_length=hop_length,
-            )
-
-        else:
-            raise ValueError(f"Unknown emotion backend: {self.backend}")
+        self.inference_service = EmotionInferenceServiceWav2Vec2(
+            model_path=str(self.model_path),
+            target_sample_rate=target_sample_rate,
+            max_duration=self.max_duration,
+            hop_duration=self.hop_duration,
+        )
 
     def _resolve_mode(
         self,

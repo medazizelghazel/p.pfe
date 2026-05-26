@@ -38,12 +38,20 @@ class DBAnalysisService:
         trainer_id: int,
         file_size_bytes: int | None = None,
         mime_type: str | None = None,
+        course_name: str | None = None,
+        course_date: datetime | None = None,
+        learner_count: int | None = None,
+        description: str | None = None,
     ) -> models.Analysis:
         video = models.Video(
             trainer_id=trainer_id,
             original_filename=original_filename,
             stored_filename=stored_filename,
             video_path=video_path,
+            course_name=course_name,
+            course_date=course_date,
+            learner_count=learner_count,
+            description=description,
             file_size_bytes=file_size_bytes,
             mime_type=mime_type,
         )
@@ -58,6 +66,7 @@ class DBAnalysisService:
             status="uploaded",
             progress=0,
             message="Video uploaded successfully.",
+            course_title=course_name,
         )
 
         db.add(analysis)
@@ -221,7 +230,13 @@ class DBAnalysisService:
         # Summary
         analysis.summary_enabled = result.summary_enabled
         analysis.summary_json_path = result.summary_json_path
-        analysis.course_title = result.course_title
+
+        # Keep uploaded course name if summary did not generate a title
+        if not result.course_title and analysis.video and analysis.video.course_name:
+            analysis.course_title = analysis.video.course_name
+        else:
+            analysis.course_title = result.course_title
+
         analysis.course_language = result.course_language
         analysis.course_sections_count = result.course_sections_count
         analysis.course_key_points = result.course_key_points or []
@@ -247,5 +262,18 @@ class DBAnalysisService:
 
         db.commit()
         db.refresh(analysis)
+
+        try:
+            from app.services.analytics_service import AnalyticsService
+
+            AnalyticsService().process_completed_analysis(
+                db=db,
+                analysis=analysis,
+            )
+
+            db.refresh(analysis)
+
+        except Exception as e:
+            print(f"[DBAnalysisService] Analytics generation failed: {e}")
 
         return analysis
