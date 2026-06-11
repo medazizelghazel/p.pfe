@@ -6,6 +6,10 @@ class LoginRequest(BaseModel):
     password: str
 
 
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+
 class UserResponse(BaseModel):
     id: int
     full_name: str

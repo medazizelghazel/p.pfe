@@ -69,6 +69,7 @@ class AnalyticsService:
 
         # Notifications intelligentes
         self.generate_completion_notification(db, analysis)
+        self.generate_admin_course_completed_notifications(db, analysis)
         self.generate_badge_notifications(db, analysis, badges)
         self.generate_stress_alert_notification(db, analysis)
         self.generate_top10_progress_notification(db, analysis)
@@ -201,27 +202,277 @@ class AnalyticsService:
 
         return badges
 
-    def _create_badge(
+    def generate_badges(
         self,
+        db: Session,
         analysis: models.Analysis,
-        badge_key: str,
-        badge_label: str,
-        badge_icon: str,
-        badge_reason: str,
-        score_value: float,
-        threshold_value: float,
-    ) -> models.CourseBadge:
-        return models.CourseBadge(
-            analysis_id=analysis.id,
-            trainer_id=analysis.trainer_id,
-            badge_key=badge_key,
-            badge_label=badge_label,
-            badge_icon=badge_icon,
-            badge_reason=badge_reason,
-            score_value=score_value,
-            threshold_value=threshold_value,
-        )
+    ) -> list[models.CourseBadge]:
+        badges: list[models.CourseBadge] = []
 
+        global_score = _num(analysis.global_score)
+        clarity_score = _num(analysis.clarity_score)
+        engagement_score = _num(analysis.engagement_score)
+        interaction_component = _num(analysis.interaction_component)
+
+        trainer_emotions = analysis.trainer_emotion_distribution or {}
+        energetic_score = _get_emotion_score(trainer_emotions, "energetic_engaged")
+        tense_score = _get_emotion_score(trainer_emotions, "tense_stressed")
+        low_energy_score = _get_emotion_score(trainer_emotions, "low_energy")
+        neutral_score = _get_emotion_score(trainer_emotions, "neutral_calm")
+
+        # ============================================================
+        # Global performance badges
+        # ============================================================
+
+        if global_score >= 85:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="excellence_pedagogique",
+                    badge_label="Excellence pédagogique",
+                    badge_icon="🥇",
+                    badge_reason="Score global supérieur ou égal à 85/100.",
+                    score_value=global_score,
+                    threshold_value=85,
+                )
+            )
+
+        elif global_score >= 70:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="bonne_performance",
+                    badge_label="Bonne performance",
+                    badge_icon="🏅",
+                    badge_reason="Score global supérieur ou égal à 70/100.",
+                    score_value=global_score,
+                    threshold_value=70,
+                )
+            )
+
+        elif global_score >= 60:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="performance_acceptable",
+                    badge_label="Performance acceptable",
+                    badge_icon="✅",
+                    badge_reason="Score global supérieur ou égal à 60/100.",
+                    score_value=global_score,
+                    threshold_value=60,
+                )
+            )
+
+        else:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="cours_a_surveiller",
+                    badge_label="Cours à surveiller",
+                    badge_icon="⚠️",
+                    badge_reason="Score global inférieur à 60/100.",
+                    score_value=global_score,
+                    threshold_value=60,
+                )
+            )
+
+        # ============================================================
+        # Clarity badges
+        # ============================================================
+
+        if clarity_score >= 90:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="voix_or",
+                    badge_label="Voix d’or",
+                    badge_icon="🗣️",
+                    badge_reason="Score de clarté vocale supérieur ou égal à 90/100.",
+                    score_value=clarity_score,
+                    threshold_value=90,
+                )
+            )
+
+        elif clarity_score >= 75:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="bonne_clarte",
+                    badge_label="Bonne clarté",
+                    badge_icon="🎙️",
+                    badge_reason="Score de clarté vocale supérieur ou égal à 75/100.",
+                    score_value=clarity_score,
+                    threshold_value=75,
+                )
+            )
+
+        elif clarity_score >= 65:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="clarte_correcte",
+                    badge_label="Clarté correcte",
+                    badge_icon="🔊",
+                    badge_reason="Score de clarté vocale supérieur ou égal à 65/100.",
+                    score_value=clarity_score,
+                    threshold_value=65,
+                )
+            )
+
+        # ============================================================
+        # Engagement badges
+        # ============================================================
+
+        if engagement_score >= 80:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="engagement_eleve",
+                    badge_label="Engagement élevé",
+                    badge_icon="⚡",
+                    badge_reason="Score d’engagement supérieur ou égal à 80/100.",
+                    score_value=engagement_score,
+                    threshold_value=80,
+                )
+            )
+
+        elif engagement_score >= 65:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="bon_engagement",
+                    badge_label="Bon engagement",
+                    badge_icon="📈",
+                    badge_reason="Score d’engagement supérieur ou égal à 65/100.",
+                    score_value=engagement_score,
+                    threshold_value=65,
+                )
+            )
+
+        # ============================================================
+        # Interaction badges
+        # ============================================================
+
+        if interaction_component >= 60:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="tres_interactif",
+                    badge_label="Très interactif",
+                    badge_icon="🎯",
+                    badge_reason="Composante d’interaction supérieure ou égale à 60/100.",
+                    score_value=interaction_component,
+                    threshold_value=60,
+                )
+            )
+
+        elif interaction_component >= 40:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="interaction_moderee",
+                    badge_label="Interaction modérée",
+                    badge_icon="💬",
+                    badge_reason="Composante d’interaction supérieure ou égale à 40/100.",
+                    score_value=interaction_component,
+                    threshold_value=40,
+                )
+            )
+
+        # ============================================================
+        # Emotion badges
+        # ============================================================
+
+        if energetic_score >= 50:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="energie_positive",
+                    badge_label="Énergie positive",
+                    badge_icon="⚡",
+                    badge_reason="Émotion energetic_engaged supérieure ou égale à 50%.",
+                    score_value=energetic_score,
+                    threshold_value=50,
+                )
+            )
+
+        elif neutral_score >= 50:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="ton_stable",
+                    badge_label="Ton stable",
+                    badge_icon="🧘",
+                    badge_reason="Émotion neutral_calm dominante ou élevée.",
+                    score_value=neutral_score,
+                    threshold_value=50,
+                )
+            )
+
+        if tense_score >= 50:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="stress_eleve",
+                    badge_label="Stress élevé",
+                    badge_icon="🔥",
+                    badge_reason="Émotion tense_stressed supérieure ou égale à 50%.",
+                    score_value=tense_score,
+                    threshold_value=50,
+                )
+            )
+
+        elif tense_score >= 35:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="stress_modere",
+                    badge_label="Stress modéré",
+                    badge_icon="🌡️",
+                    badge_reason="Émotion tense_stressed supérieure ou égale à 35%.",
+                    score_value=tense_score,
+                    threshold_value=35,
+                )
+            )
+
+        if low_energy_score >= 50:
+            badges.append(
+                self._create_badge(
+                    analysis=analysis,
+                    badge_key="energie_faible",
+                    badge_label="Énergie faible",
+                    badge_icon="🔋",
+                    badge_reason="Émotion low_energy supérieure ou égale à 50%.",
+                    score_value=low_energy_score,
+                    threshold_value=50,
+                )
+            )
+
+        for badge in badges:
+            db.add(badge)
+
+        return badges
+
+    def _create_badge(
+            self,
+            analysis: models.Analysis,
+            badge_key: str,
+            badge_label: str,
+            badge_icon: str,
+            badge_reason: str,
+            score_value: float,
+            threshold_value: float,
+        ) -> models.CourseBadge:
+            return models.CourseBadge(
+                analysis_id=analysis.id,
+                trainer_id=analysis.trainer_id,
+                badge_key=badge_key,
+                badge_label=badge_label,
+                badge_icon=badge_icon,
+                badge_reason=badge_reason,
+                score_value=round(_num(score_value), 2),
+                threshold_value=threshold_value,
+            )    
     # ------------------------------------------------------------
     # Global insights
     # ------------------------------------------------------------
@@ -773,6 +1024,61 @@ class AnalyticsService:
 
         db.add(notification)
         return notification
+    
+    def generate_admin_course_completed_notifications(
+        self,
+        db: Session,
+        analysis: models.Analysis,
+    ) -> list[models.Notification]:
+        """
+        Crée une notification pour tous les administrateurs lorsqu’un cours est terminé.
+        """
+
+        course_name = self._get_course_name(analysis)
+        global_score = round(_num(analysis.global_score), 2)
+
+        trainer = (
+            db.query(models.User)
+            .filter(models.User.id == analysis.trainer_id)
+            .first()
+        )
+
+        trainer_name = trainer.full_name if trainer else "Formateur inconnu"
+
+        admins = (
+            db.query(models.User)
+            .filter(models.User.role == "admin")
+            .all()
+        )
+
+        notifications: list[models.Notification] = []
+
+        for admin in admins:
+            notification = models.Notification(
+                user_id=admin.id,
+                analysis_id=analysis.id,
+                notification_type="admin_course_completed",
+                title="Cours terminé",
+                message=(
+                    f"Le cours « {course_name} » du formateur {trainer_name} "
+                    f"est terminé avec un score global de {global_score}/100."
+                ),
+                priority="success" if global_score >= 75 else "normal",
+                is_read=False,
+                metadata_json={
+                    "analysis_id": analysis.analysis_id,
+                    "course_name": course_name,
+                    "trainer_id": analysis.trainer_id,
+                    "trainer_name": trainer_name,
+                    "global_score": global_score,
+                    "completed_at": datetime.utcnow().isoformat(),
+                },
+            )
+
+            db.add(notification)
+            notifications.append(notification)
+
+        return notifications
 
     def generate_badge_notifications(
         self,
@@ -1041,6 +1347,90 @@ class AnalyticsService:
         percentile = (lower_or_equal_count / total_completed) * 100
 
         return round(percentile, 2)
+
+    def calculate_course_benchmark(
+        self,
+        db: Session,
+        analysis: models.Analysis,
+    ) -> dict:
+        """
+        Returns detailed benchmark statistics based on global_score.
+
+        Statistics returned:
+        - rank: position of the course among completed courses, ordered by global_score descending
+        - total_courses: number of completed courses used for the comparison
+        - course_score: current course global score
+        - platform_average_score: average global score of completed courses
+        - score_difference: course score minus platform average
+        - better_than_count: number of completed courses with a lower global score
+        - percentile: percentage of courses exceeded by the current course
+        """
+
+        if not analysis or analysis.status != "completed":
+            return {
+                "rank": 0,
+                "total_courses": 0,
+                "course_score": 0.0,
+                "platform_average_score": 0.0,
+                "score_difference": 0.0,
+                "better_than_count": 0,
+                "percentile": 0.0,
+            }
+
+        course_score = _num(analysis.global_score)
+
+        completed_query = (
+            db.query(models.Analysis)
+            .filter(models.Analysis.status == "completed")
+        )
+
+        total_courses = completed_query.count()
+
+        if total_courses == 0:
+            return {
+                "rank": 0,
+                "total_courses": 0,
+                "course_score": round(course_score, 2),
+                "platform_average_score": 0.0,
+                "score_difference": 0.0,
+                "better_than_count": 0,
+                "percentile": 0.0,
+            }
+
+        higher_count = (
+            completed_query
+            .filter(models.Analysis.global_score > course_score)
+            .count()
+        )
+
+        better_than_count = (
+            completed_query
+            .filter(models.Analysis.global_score < course_score)
+            .count()
+        )
+
+        scores_rows = (
+            db.query(models.Analysis.global_score)
+            .filter(models.Analysis.status == "completed")
+            .all()
+        )
+
+        scores = [_num(row[0]) for row in scores_rows]
+        platform_average_score = sum(scores) / len(scores) if scores else 0.0
+
+        rank = higher_count + 1
+        score_difference = course_score - platform_average_score
+        percentile = (better_than_count / total_courses) * 100
+
+        return {
+            "rank": rank,
+            "total_courses": total_courses,
+            "course_score": round(course_score, 2),
+            "platform_average_score": round(platform_average_score, 2),
+            "score_difference": round(score_difference, 2),
+            "better_than_count": better_than_count,
+            "percentile": round(percentile, 2),
+        }
 
     # ------------------------------------------------------------
     # Helpers

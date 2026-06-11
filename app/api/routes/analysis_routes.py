@@ -226,10 +226,6 @@ def list_analyses(
     ]
 
 
-# ------------------------------------------------------------------
-# Course CRUD
-# Important: these routes must stay before "/{analysis_id}/status"
-# ------------------------------------------------------------------
 
 @router.get("/courses/{analysis_id}")
 def get_course_details(

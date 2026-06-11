@@ -284,13 +284,21 @@ class AnalysisService:
     # Main pipeline
     # ------------------------------------------------------------------
 
-    def run(self, video_path: str) -> AnalysisResult:
+    def run(self, video_path: str, progress_callback=None) -> AnalysisResult:
         analysis_id = build_analysis_id(video_path)
+
+        def progress(value: int, message: str) -> None:
+            if progress_callback:
+                progress_callback(value, message)
+
+        progress(15, "Extraction audio depuis la vidéo.")
 
         extracted_audio_path = self.audio_extractor.extract(
             video_path,
             analysis_id,
         )
+
+        progress(18, "Audio extrait avec succès.")
 
         diarization_raw = None
         diarization_post = None
@@ -305,6 +313,8 @@ class AnalysisService:
         summary_data = {}
 
         if self.diarization_service and self.diarization_postprocessor:
+            progress(25, "Diarisation en cours : identification des locuteurs.")
+
             diarization_output_dir = "data/results/diarization"
 
             diarization_raw = self.diarization_service.diarize_audio(
@@ -314,11 +324,15 @@ class AnalysisService:
                 max_speakers=3,
             )
 
+            progress(30, "Post-traitement de la diarisation.")
+
             diarization_post = self.diarization_postprocessor.process(
                 csv_path=diarization_raw["output_csv"],
                 output_dir=diarization_output_dir,
                 real_speakers=diarization_raw["real_speakers"],
             )
+
+            progress(34, "Construction de l’audio du formateur.")
 
             try:
                 trainer_audio_result = self.trainer_audio_builder.build(
@@ -340,6 +354,8 @@ class AnalysisService:
                     f"fallback to full audio: {e}"
                 )
                 trainer_audio_result = None
+
+            progress(38, "Construction de l’audio des apprenants.")
 
             try:
                 learner_audio_result = self.learner_audio_builder.build(
@@ -363,6 +379,8 @@ class AnalysisService:
             except Exception as e:
                 print(f"[AnalysisService] Learner audio build failed: {e}")
                 learner_audio_result = None
+
+            progress(42, "Transcription et résumé du cours.")
 
             if (
                 self.transcription_service
@@ -389,6 +407,8 @@ class AnalysisService:
                     transcription_result = None
                     summary_result = None
                     summary_data = {}
+        else:
+            progress(25, "Diarisation non disponible, analyse sur l’audio complet.")
 
         scoring_audio_input = extracted_audio_path
         scoring_audio_source = "full_audio"
@@ -397,12 +417,18 @@ class AnalysisService:
             scoring_audio_input = trainer_audio_result["output_audio_path"]
             scoring_audio_source = "trainer_only"
 
+        progress(46, "Prétraitement et normalisation audio.")
+
         processed_audio = self.audio_preprocessor.process(
             scoring_audio_input,
             analysis_id,
         )
 
+        progress(50, "Extraction des caractéristiques audio.")
+
         features = self.feature_extractor.extract(processed_audio.path)
+
+        progress(56, "Évaluation de la clarté vocale.")
 
         if trainer_audio_result and trainer_audio_result.get("chunk_count", 0) > 0:
             clarity_result = self.clarity_evaluator.evaluate_chunks(
@@ -414,8 +440,8 @@ class AnalysisService:
         clarity_score = clarity_result["clarity_score"]
         self._print_clarity_summary(clarity_result)
 
-        # Trainer emotion is computed on processed_audio.path.
-        # If diarization succeeds, processed_audio.path is based on trainer-only audio.
+        progress(64, "Analyse des émotions du formateur.")
+
         emotion_result = self.emotion_classifier.classify_with_details(
             processed_audio.path
         )
@@ -436,8 +462,8 @@ class AnalysisService:
 
         self._print_emotion_summary(emotion_result)
 
-        # Global emotion of all learners.
-        # This uses all learner segments already identified in the clean diarization CSV.
+        progress(70, "Analyse des émotions des apprenants.")
+
         if learner_audio_result and learner_audio_result.get("enabled"):
             try:
                 learner_emotion_raw = self.emotion_classifier.classify_with_details(
@@ -489,6 +515,8 @@ class AnalysisService:
             else None
         )
 
+        progress(78, "Calcul du score d’engagement.")
+
         engagement_result = self.engagement_estimator.estimate_from_audio(
             audio_path=processed_audio.path,
             emotion_scores=emotion_scores,
@@ -504,6 +532,8 @@ class AnalysisService:
         self._print_engagement_summary(engagement_result)
         self._print_transcription_summary(transcription_result)
         self._print_summary_result(summary_result)
+
+        progress(84, "Calcul du score global.")
 
         global_score = self.score_aggregator.aggregate(
             clarity_score=clarity_score,
@@ -600,7 +630,12 @@ class AnalysisService:
             course_summary=summary_data,
         )
 
+        progress(90, "Génération du rapport PDF.")
+
         report_path = self.report_generator.generate(result, analysis_id)
+
+        progress(94, "Export des résultats JSON.")
+
         json_path = self.result_exporter.export_json(result, analysis_id)
 
         self._print_diarization_summary(
@@ -626,6 +661,8 @@ class AnalysisService:
             transcription_result=transcription_result,
             summary_result=summary_result,
         )
+
+        progress(96, "Résultats générés avec succès.")
 
         return result
     

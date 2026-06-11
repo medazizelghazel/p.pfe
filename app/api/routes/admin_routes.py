@@ -23,7 +23,7 @@ class TrainerCreateRequest(BaseModel):
 class TrainerUpdateRequest(BaseModel):
     full_name: str = Field(min_length=2, max_length=150)
     email: EmailStr
-    password: str | None = Field(default=None, min_length=6)
+    role: str = Field(pattern="^(admin|trainer)$")
 
 
 class UserRoleUpdateRequest(BaseModel):
@@ -160,6 +160,8 @@ def list_trainers(
                 "courses_count": len(analyses),
                 "completed_analyses_count": len(completed),
                 "average_global_score": avg_score,
+                "can_delete": user.role != "admin",
+                "can_change_role": True,
             }
         )
 
@@ -252,11 +254,12 @@ def update_trainer(
     if existing_email:
         raise HTTPException(status_code=400, detail="Email already used.")
 
+    if payload.role not in {"admin", "trainer"}:
+        raise HTTPException(status_code=400, detail="Invalid role.")
+
     user.full_name = payload.full_name
     user.email = payload.email
-
-    if payload.password:
-        user.password_hash = hash_password(payload.password)
+    user.role = payload.role
 
     db.commit()
     db.refresh(user)
@@ -289,6 +292,12 @@ def delete_trainer(
         raise HTTPException(
             status_code=400,
             detail="You cannot delete your own account.",
+        )
+
+    if user.role == "admin":
+        raise HTTPException(
+            status_code=403,
+            detail="You cannot delete another administrator. You can only change their role.",
         )
 
     db.delete(user)

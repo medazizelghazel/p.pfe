@@ -8,10 +8,13 @@ from app.database import get_db
 from app.schemas.auth_schema import (
     AuthResponse,
     ChangePasswordRequest,
+    ForgotPasswordRequest,
     LoginRequest,
     ProfileUpdateRequest,
     UserResponse,
 )
+from app.services.email_service import EmailService
+from app.utils.password_utils import generate_temporary_password
 
 
 router = APIRouter(prefix="/api/auth", tags=["Authentication"])
@@ -46,6 +49,44 @@ def login(
         access_token=access_token,
         user=UserResponse.model_validate(user),
     )
+
+
+@router.post("/forgot-password")
+def forgot_password(
+    payload: ForgotPasswordRequest,
+    db: Session = Depends(get_db),
+):
+    user = (
+        db.query(models.User)
+        .filter(models.User.email == payload.email)
+        .first()
+    )
+
+    if user is None:
+        return {
+            "message": "Si cet email existe, un nouveau mot de passe temporaire sera envoyé.",
+        }
+
+    temporary_password = generate_temporary_password()
+
+    user.password_hash = hash_password(temporary_password)
+    db.commit()
+
+    try:
+        EmailService().send_password_reset(
+            to_email=user.email,
+            full_name=user.full_name,
+            temporary_password=temporary_password,
+        )
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Le mot de passe a été réinitialisé, mais l’email n’a pas été envoyé : {str(e)}",
+        )
+
+    return {
+        "message": "Si cet email existe, un nouveau mot de passe temporaire sera envoyé.",
+    }
 
 
 @router.get("/me", response_model=UserResponse)

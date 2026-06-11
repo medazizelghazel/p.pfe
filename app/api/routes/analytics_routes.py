@@ -141,7 +141,7 @@ def get_course_insights(
 
 
 # ============================================================
-# COURSE PERCENTILE
+# COURSE BENCHMARK
 # ============================================================
 
 @router.get("/course/{analysis_id}/percentile")
@@ -162,7 +162,7 @@ def get_course_percentile(
     if not _can_access_analysis(current_user, analysis):
         raise HTTPException(status_code=403, detail="Access denied.")
 
-    percentile = AnalyticsService().calculate_course_percentile(
+    benchmark = AnalyticsService().calculate_course_benchmark(
         db=db,
         analysis=analysis,
     )
@@ -170,11 +170,20 @@ def get_course_percentile(
     return {
         "analysis_id": analysis.analysis_id,
         "course_name": _course_name(analysis),
-        "global_score": analysis.global_score,
-        "percentile": percentile,
-        "message": f"Ce cours est dans le top {round(100 - percentile, 2)}% de la plateforme."
-        if percentile < 100
-        else "Ce cours est parmi les meilleurs cours de la plateforme.",
+        "global_score": _safe_round(analysis.global_score),
+        "percentile": benchmark.get("percentile", 0.0),
+
+        "rank": benchmark.get("rank", 0),
+        "total_courses": benchmark.get("total_courses", 0),
+        "course_score": benchmark.get("course_score", 0.0),
+        "platform_average_score": benchmark.get("platform_average_score", 0.0),
+        "score_difference": benchmark.get("score_difference", 0.0),
+        "better_than_count": benchmark.get("better_than_count", 0),
+
+        "message": (
+            f"Ce cours dépasse {benchmark.get('better_than_count', 0)} cours "
+            f"sur {benchmark.get('total_courses', 0)} cours analysés."
+        ),
     }
 
 
@@ -224,8 +233,6 @@ def get_courses_leaderboard(
         .order_by(desc(score_column))
     )
 
-    # Trainer sees only his own courses.
-    # Admin sees all platform courses.
     if not _is_admin(current_user):
         query = query.filter(models.Analysis.trainer_id == current_user.id)
 
